@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 export const NavbarDefault = () => {
    
   let navigate = useNavigate();
-  function handleClick() {
-    navigate('/trackyourshoes')
+  function handleClick(path) {
+    navigate(path)
   }
 
   const menuData = [
@@ -55,7 +55,7 @@ export const NavbarDefault = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               {menuData.map((item) => (
-                <NavLink onClick={handleClick} to={item.path} key={item.name}>
+                <NavLink onClick={()=>{handleClick(item.path)}} key={item.name}>
                   <div className="list_item">{item.name}</div>
                 </NavLink>
               ))}
